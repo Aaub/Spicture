@@ -1,12 +1,9 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.0"
     defaultConfig {
         applicationId "com.aaub.spicture"
         minSdkVersion 28
@@ -23,9 +20,6 @@ android {
     }
 }
 
-project.ext{
-
-}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -38,8 +32,8 @@ dependencies {
 
     /***  Test  ***/
     testImplementation rootProject.ext.moduleDependencies.kotlin_junit
-    testImplementation rootProject.ext.moduleDependencies.runner
-    testImplementation rootProject.ext.moduleDependencies.espresso
+    androidTestImplementation rootProject.ext.moduleDependencies.runner
+    androidTestImplementation rootProject.ext.moduleDependencies.espresso
 
     /***  UI Components  ***/
     implementation rootProject.ext.moduleDependencies.recyclerView
@@ -59,5 +53,6 @@ dependencies {
 
     /*** Picasso ****/
     implementation rootProject.ext.moduleDependencies.picasso
+
 
 }
